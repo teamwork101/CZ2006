@@ -1,0 +1,105 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CPMasterPage.master.cs" Inherits="CPManageApp.UI.CPMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A Website who provide carpark management services to customers.">
+    <meta name="author" content="SHAPY 2018">
+
+    <title>Welcome to Park'n'Go!</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="Layout/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="Layout/css/half-slider.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <!--This is the part where other web pages can use to override the head section-->
+
+    
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+
+    <form id="form1" runat="server">
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="Homepage.aspx">
+                    <img src="Layout/img/Clogo_Small.png" alt="" width="152" height="53">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li  class="nav-item">
+                        <asp:LinkButton runat="server" ID="lblUserHomepage" Text="My Homepage" class="nav-link" OnClick="lblUserHomepage_Click" Visible="false"></asp:LinkButton>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Homepage.aspx">Home
+                            </a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link" href="CarparkSearch.aspx">Search Carpark</a>
+                        </li>
+                    </ul>
+                    <%--  Add Sign up Button Method 1--%>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <asp:Button ID="btnSignUp" runat="server" Text="Sign up" CssClass="btn btn-danger" OnClick="btnSignUp_Click" CausesValidation="false" />
+                        </li>
+
+                        &nbsp;
+                    <li>
+                        <asp:Button ID="btnLogin" runat="server" Text="Login" CssClass="btn btn-secondary" CausesValidation="false" OnClick="btnLogin_Click"/>
+                    </li>
+
+                    </ul>
+                    <%--  End Add Sign up Method 1--%>
+
+                    <%--  Add Sign up Button Method 2--%>
+                    <%--<ul class="nav navbar-nav navbar-right">
+                <li  class="nav-item"><a href="#" class="nav-link"><i class="fas fa-user"></i>&nbsp;Sign Up</a></li>
+                <li  class="nav-item"><a href="#" class="nav-link"><i class="fas fa-sign-out-alt"></i>&nbsp;Login</a></li>
+                </ul>--%>
+                    <%-- End Add Sign up Button Method 2--%>
+
+                    <%--  Add Sign up Button Method 3 --%>
+                    <%-- <ul class="nav navbar-nav navbar-right">
+                    <li  class="nav-item">
+                        <asp:LinkButton runat="server" ID="lblSignUp" Text="Sign Up" class="btn dark_btn selected"></asp:LinkButton></li>
+                    <li  class="nav-item">
+                        <asp:LinkButton runat="server" ID="lblLogin" Text="Login" class="btn dark_btn" ></asp:LinkButton></li>
+                </ul>--%>
+                    <%--  End Add Sign up Button Method 3 --%>
+                </div>
+            </div>
+        </nav>
+        <!-- End Navigation -->
+
+        <div>
+            <asp:ContentPlaceHolder ID="BodyContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; SHAPY 2018</p>
+        </div>
+        <!-- /.container and end of Footer -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="Layout/vendor/jquery/jquery.min.js"></script>
+    <script src="Layout/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

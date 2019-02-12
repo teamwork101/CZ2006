@@ -1,0 +1,585 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6CBA5D78-6B4D-445B-8275-8DADEB70FE31}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CPManageApp</RootNamespace>
+    <AssemblyName>CPManageApp</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.1.1.2\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.1.2\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.4.2.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.4.2\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.1.2\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Twilio, Version=5.19.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.5.19.0\lib\net451\Twilio.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\CPMDatabase.mdf" />
+    <Content Include="App_Data\CPMDatabase_log.ldf">
+      <DependentUpon>CPMDatabase.mdf</DependentUpon>
+    </Content>
+    <Content Include="UI\313%40somerset.aspx" />
+    <Content Include="UI\313%40somerset.jpg" />
+    <Content Include="UI\ActivateAcc.aspx" />
+    <Content Include="UI\bugisjunction.aspx" />
+    <Content Include="UI\bugisjunction.jpg" />
+    <Content Include="UI\bugisjunction2.jpg" />
+    <Content Include="UI\Carousel\313%40Somerset.jpg" />
+    <Content Include="UI\Carousel\Alexandra Retail Centre.jpg" />
+    <Content Include="UI\Carousel\Anchorpoint Shopping Centre.jpg" />
+    <Content Include="UI\Carousel\Ang Mo Kio Hub.jpg" />
+    <Content Include="UI\Carousel\Atrium %40 Orchard.jpg" />
+    <Content Include="UI\Carousel\Balestier Plaza.jpg" />
+    <Content Include="UI\Carousel\Balestier Point.jpg" />
+    <Content Include="UI\Carousel\Bedok Mall.jpg" />
+    <Content Include="UI\Carousel\Bedok Point.jpg" />
+    <Content Include="UI\Carousel\Bras Basah Complex.jpg" />
+    <Content Include="UI\Carousel\Bugis Junction.jpg" />
+    <Content Include="UI\Carousel\Bukit Panjang Plaza.jpg" />
+    <Content Include="UI\Carousel\Bukit Timah Shopping Centre.jpg" />
+    <Content Include="UI\Carousel\Capital Square.jpg" />
+    <Content Include="UI\Carousel\Cathay Cineleisure Orchard.jpg" />
+    <Content Include="UI\Carousel\Causeway Point.jpg" />
+    <Content Include="UI\Carousel\Central Mall.jpg" />
+    <Content Include="UI\Carousel\Century Square.jpg" />
+    <Content Include="UI\Carousel\Changi City Point.jpg" />
+    <Content Include="UI\Carousel\China Square Central.jpg" />
+    <Content Include="UI\Carousel\Chinatown Point.jpg" />
+    <Content Include="UI\Carousel\City Plaza.jpg" />
+    <Content Include="UI\Carousel\City Square Mall.jpg" />
+    <Content Include="UI\Carousel\Compass Point.jpg" />
+    <Content Include="UI\Carousel\Coronation Shopping Plaza.jpg" />
+    <Content Include="UI\Carousel\Delfi Orchard.jpg" />
+    <Content Include="UI\Carousel\Eastpoint Mall.jpg" />
+    <Content Include="UI\Carousel\Far East Plaza.jpg" />
+    <Content Include="UI\Carousel\Far East Shopping Centre.jpg" />
+    <Content Include="UI\Carousel\Far East Square.jpg" />
+    <Content Include="UI\Carousel\Fortune Centre.jpg" />
+    <Content Include="UI\Carousel\Forum The Shopping Mall.jpg" />
+    <Content Include="UI\Carousel\Fu Lu Shou Complex.jpg" />
+    <Content Include="UI\Carousel\Golden-Mile-Complex-Building.jpg" />
+    <Content Include="UI\Carousel\Great World City.JPG" />
+    <Content Include="UI\Carousel\Harbourfront Centre.jpg" />
+    <Content Include="UI\Carousel\Heartland Mall.jpg" />
+    <Content Include="UI\Carousel\Holland Road Shopping Centre.jpg" />
+    <Content Include="UI\Carousel\Hougang Green Shopping Mall.jpg" />
+    <Content Include="UI\Carousel\Hougang Mall.jpg" />
+    <Content Include="UI\Carousel\Hougang Plaza.jpg" />
+    <Content Include="UI\Carousel\Icon Village.JPG" />
+    <Content Include="UI\Carousel\IMM Building.jpg" />
+    <Content Include="UI\Carousel\ION Orchard.jpg" />
+    <Content Include="UI\Carousel\Jcube.jpg" />
+    <Content Include="UI\Carousel\Junction 10.jpg" />
+    <Content Include="UI\Carousel\Junction 8 Shopping Centre.jpg" />
+    <Content Include="UI\Carousel\Jurong Point Shopping Centre.jpg" />
+    <Content Include="UI\Carousel\Katong Shopping Centre.jpg" />
+    <Content Include="UI\Carousel\Katong Village.jpg" />
+    <Content Include="UI\Carousel\Lot 1 Shopping Centre.jpg" />
+    <Content Include="UI\Carousel\Lucky Plaza.jpg" />
+    <Content Include="UI\Carousel\Marina Square.jpg" />
+    <Content Include="UI\Carousel\Mustafa Centre.png" />
+    <Content Include="UI\Carousel\Nex Mall.jpg" />
+    <Content Include="UI\Carousel\Ngee Ann City.JPG" />
+    <Content Include="UI\Carousel\North Bridge Centre.jpg" />
+    <Content Include="UI\Carousel\Northpoint Shopping Centre.jpg" />
+    <Content Include="UI\Carousel\OG Orchard Point.jpg" />
+    <Content Include="UI\Carousel\One Fullerton.jpg" />
+    <Content Include="UI\Carousel\Orchard Central.jpg" />
+    <Content Include="UI\Carousel\Orchard Plaza.jpg" />
+    <Content Include="UI\Carousel\orchardgateway.jpg" />
+    <Content Include="UI\Carousel\Pacific Plaza.jpg" />
+    <Content Include="UI\Carousel\Palais Renaissance.jpg" />
+    <Content Include="UI\Carousel\Paragon Shopping Centre.jpg" />
+    <Content Include="UI\Carousel\Parklane Shopping Mall.jpg" />
+    <Content Include="UI\Carousel\Parkway Parade.jpg" />
+    <Content Include="UI\Carousel\People%27s Park Centre.jpg" />
+    <Content Include="UI\Carousel\Plaza Singapura.jpg" />
+    <Content Include="UI\Carousel\Queensway Shopping Centre.jpg" />
+    <Content Include="UI\Carousel\Raffles City.jpg" />
+    <Content Include="UI\Carousel\Rivervale Mall.png" />
+    <Content Include="UI\Carousel\Robertson Walk.jpg" />
+    <Content Include="UI\Carousel\Robinson Centre.jpg" />
+    <Content Include="UI\Carousel\Roxy Square.JPG" />
+    <Content Include="UI\Carousel\Sembawang Shopping Centre.jpg" />
+    <Content Include="UI\Carousel\Serene Centre.jpg" />
+    <Content Include="UI\Carousel\Shaw Centre.jpg" />
+    <Content Include="UI\Carousel\Shaw House.JPG" />
+    <Content Include="UI\Carousel\Shaw Plaza.jpg" />
+    <Content Include="UI\Carousel\Sim Lim Square.jpg" />
+    <Content Include="UI\Carousel\Singapore Shopping Centre.jpg" />
+    <Content Include="UI\Carousel\Square 2.jpg" />
+    <Content Include="UI\Carousel\Sun Plaza.jpg" />
+    <Content Include="UI\Carousel\Sunshine Plaza.jpg" />
+    <Content Include="UI\Carousel\Suntec City.jpg" />
+    <Content Include="UI\Carousel\Tampines 1.jpg" />
+    <Content Include="UI\Carousel\Tampines Mall.jpg" />
+    <Content Include="UI\Carousel\Tampines Plaza %28Compaq Centre%29.jpg" />
+    <Content Include="UI\Carousel\Tanglin Mall.jpg" />
+    <Content Include="UI\Carousel\Tanglin Shopping Centre.jpg" />
+    <Content Include="UI\Carousel\Tangs.jpg" />
+    <Content Include="UI\Carousel\The Adelphi.jpg" />
+    <Content Include="UI\Carousel\The Cathay.jpg" />
+    <Content Include="UI\Carousel\The Centrepoint.jpg" />
+    <Content Include="UI\Carousel\The Clementi Mall.jpg" />
+    <Content Include="UI\Carousel\The Heeren.jpg" />
+    <Content Include="UI\Carousel\The Star Vista.jpg" />
+    <Content Include="UI\Carousel\The Verge.jpg" />
+    <Content Include="UI\Carousel\Thomson Plaza.jpg" />
+    <Content Include="UI\Carousel\Tiong Bahru Plaza.jpg" />
+    <Content Include="UI\Carousel\UE Square.jpg" />
+    <Content Include="UI\Carousel\United Square Shopping Mall.jpg" />
+    <Content Include="UI\Carousel\Valley Point.jpg" />
+    <Content Include="UI\Carousel\Velocity %40 Novena Square.jpg" />
+    <Content Include="UI\Carousel\Vivocity.jpg" />
+    <Content Include="UI\Carousel\vScape.jpg" />
+    <Content Include="UI\Carousel\West Coast Plaza %28Ginza Plaza%29.jpg" />
+    <Content Include="UI\Carousel\West Mall.jpg" />
+    <Content Include="UI\Carousel\Westgate.jpg" />
+    <Content Include="UI\Carousel\Wheelock Place.jpg" />
+    <Content Include="UI\Carousel\White Sands Shopping Centre.png" />
+    <Content Include="UI\Carousel\Wisma Atria.jpg" />
+    <Content Include="UI\Carousel\Yew Tee Point.jpg" />
+    <Content Include="UI\CarparkSearch.aspx" />
+    <Content Include="UI\CarparkView.aspx" />
+    <Content Include="UI\ChangePassword.aspx" />
+    <Content Include="UI\Layout\css\half-slider.css" />
+    <Content Include="UI\Homepage.aspx" />
+    <Content Include="UI\Layout\img\Clogo.png" />
+    <Content Include="UI\Layout\img\Clogo_Small.png" />
+    <Content Include="UI\Layout\Javascript\gulpfile.js" />
+    <Content Include="UI\Layout\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="UI\Layout\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="UI\Layout\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="UI\Layout\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="UI\Layout\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="UI\Layout\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="UI\Layout\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="UI\Layout\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="UI\Layout\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="UI\Layout\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="UI\Layout\vendor\jquery\jquery.js" />
+    <Content Include="UI\Layout\vendor\jquery\jquery.min.js" />
+    <Content Include="UI\Layout\vendor\jquery\jquery.slim.js" />
+    <Content Include="UI\Layout\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="UI\Login.aspx" />
+    <Content Include="UI\MallImages\313%40Somerset.jpeg" />
+    <Content Include="UI\MallImages\Alexandra Retail Centre.jpeg" />
+    <Content Include="UI\MallImages\Anchorpoint Shopping Centre.jpeg" />
+    <Content Include="UI\MallImages\Ang Mo Kio Hub.jpeg" />
+    <Content Include="UI\MallImages\Atrium %40 Orchard.jpeg" />
+    <Content Include="UI\MallImages\Balestier Plaza.jpeg" />
+    <Content Include="UI\MallImages\Balestier Point.jpeg" />
+    <Content Include="UI\MallImages\Bedok Mall.jpeg" />
+    <Content Include="UI\MallImages\Bedok Point.jpeg" />
+    <Content Include="UI\MallImages\Bras Basah Complex.jpeg" />
+    <Content Include="UI\MallImages\Bugis Junction.jpeg" />
+    <Content Include="UI\MallImages\Bukit Panjang Plaza.jpeg" />
+    <Content Include="UI\MallImages\Bukit Timah Shopping Centre.jpeg" />
+    <Content Include="UI\MallImages\Capital Square.jpeg" />
+    <Content Include="UI\MallImages\Cathay Cineleisure Orchard.jpeg" />
+    <Content Include="UI\MallImages\Causeway Point.jpeg" />
+    <Content Include="UI\MallImages\Central Mall.jpeg" />
+    <Content Include="UI\MallImages\Century Square.jpeg" />
+    <Content Include="UI\MallImages\Changi City Point.jpeg" />
+    <Content Include="UI\MallImages\China Square Central.jpeg" />
+    <Content Include="UI\MallImages\Chinatown Point.jpeg" />
+    <Content Include="UI\MallImages\City Plaza.jpeg" />
+    <Content Include="UI\MallImages\City Square Mall.jpeg" />
+    <Content Include="UI\MallImages\Compass Point.jpeg" />
+    <Content Include="UI\MallImages\Coronation Shopping Plaza.jpeg" />
+    <Content Include="UI\MallImages\Delfi Orchard.jpeg" />
+    <Content Include="UI\MallImages\Eastpoint Mall.jpeg" />
+    <Content Include="UI\MallImages\Far East Plaza.jpeg" />
+    <Content Include="UI\MallImages\Far East Shopping Centre.jpeg" />
+    <Content Include="UI\MallImages\Far East Square.jpeg" />
+    <Content Include="UI\MallImages\Fortune Centre.jpeg" />
+    <Content Include="UI\MallImages\Forum The Shopping Mall.jpeg" />
+    <Content Include="UI\MallImages\Fu Lu Shou Complex.jpeg" />
+    <Content Include="UI\MallImages\Golden-Mile-Complex-Building.jpeg" />
+    <Content Include="UI\MallImages\Great World City.jpeg" />
+    <Content Include="UI\MallImages\Harbourfront Centre.jpeg" />
+    <Content Include="UI\MallImages\Heartland Mall.jpeg" />
+    <Content Include="UI\MallImages\Holland Road Shopping Centre.jpeg" />
+    <Content Include="UI\MallImages\Hougang Green Shopping Mall.jpeg" />
+    <Content Include="UI\MallImages\Hougang Mall.jpeg" />
+    <Content Include="UI\MallImages\Hougang Plaza.jpeg" />
+    <Content Include="UI\MallImages\Icon Village.jpeg" />
+    <Content Include="UI\MallImages\IMM Building.jpeg" />
+    <Content Include="UI\MallImages\ION Orchard.jpeg" />
+    <Content Include="UI\MallImages\Jcube.jpeg" />
+    <Content Include="UI\MallImages\Junction 10.jpeg" />
+    <Content Include="UI\MallImages\Junction 8 Shopping Centre.jpeg" />
+    <Content Include="UI\MallImages\Jurong Point Shopping Centre.jpeg" />
+    <Content Include="UI\MallImages\Katong Shopping Centre.jpeg" />
+    <Content Include="UI\MallImages\Katong Village.jpeg" />
+    <Content Include="UI\MallImages\Lot 1 Shopping Centre.jpeg" />
+    <Content Include="UI\MallImages\Lucky Plaza.jpeg" />
+    <Content Include="UI\MallImages\Marina Square.jpeg" />
+    <Content Include="UI\MallImages\Millenia Singapore.jpeg" />
+    <Content Include="UI\MallImages\Mustafa Centre.jpeg" />
+    <Content Include="UI\MallImages\Nex Mall.jpeg" />
+    <Content Include="UI\MallImages\Ngee Ann City.jpeg" />
+    <Content Include="UI\MallImages\North Bridge Centre.jpeg" />
+    <Content Include="UI\MallImages\Northpoint Shopping Centre.jpeg" />
+    <Content Include="UI\MallImages\OG Orchard Point.jpeg" />
+    <Content Include="UI\MallImages\One Fullerton.jpeg" />
+    <Content Include="UI\MallImages\Orchard Central.jpeg" />
+    <Content Include="UI\MallImages\Orchard Plaza.jpeg" />
+    <Content Include="UI\MallImages\orchardgateway.jpeg" />
+    <Content Include="UI\MallImages\Pacific Plaza.jpeg" />
+    <Content Include="UI\MallImages\Palais Renaissance.jpeg" />
+    <Content Include="UI\MallImages\Paragon Shopping Centre.jpeg" />
+    <Content Include="UI\MallImages\Parklane Shopping Mall.jpeg" />
+    <Content Include="UI\MallImages\Parkway Parade.jpeg" />
+    <Content Include="UI\MallImages\People%27s Park Centre.jpeg" />
+    <Content Include="UI\MallImages\Plaza Singapura.jpeg" />
+    <Content Include="UI\MallImages\Queensway Shopping Centre.jpeg" />
+    <Content Include="UI\MallImages\Raffles City.jpeg" />
+    <Content Include="UI\MallImages\Rivervale Mall.jpeg" />
+    <Content Include="UI\MallImages\Robertson Walk.jpeg" />
+    <Content Include="UI\MallImages\Robinson Centre.jpeg" />
+    <Content Include="UI\MallImages\Roxy Square.jpeg" />
+    <Content Include="UI\MallImages\Scape.jpeg" />
+    <Content Include="UI\MallImages\Sembawang Shopping Centre.jpeg" />
+    <Content Include="UI\MallImages\Serene Centre.jpeg" />
+    <Content Include="UI\MallImages\Shaw Centre.jpeg" />
+    <Content Include="UI\MallImages\Shaw House.jpeg" />
+    <Content Include="UI\MallImages\Shaw Plaza.jpeg" />
+    <Content Include="UI\MallImages\Sim Lim Square.jpeg" />
+    <Content Include="UI\MallImages\Singapore Shopping Centre.jpeg" />
+    <Content Include="UI\MallImages\Square 2.jpeg" />
+    <Content Include="UI\MallImages\Sun Plaza.jpeg" />
+    <Content Include="UI\MallImages\Sunshine Plaza.jpeg" />
+    <Content Include="UI\MallImages\Suntec City.jpeg" />
+    <Content Include="UI\MallImages\Tampines 1.jpeg" />
+    <Content Include="UI\MallImages\Tampines Mall.jpeg" />
+    <Content Include="UI\MallImages\Tampines Plaza %28Compaq Centre%29.jpeg" />
+    <Content Include="UI\MallImages\Tanglin Mall.jpeg" />
+    <Content Include="UI\MallImages\Tanglin Shopping Centre.jpeg" />
+    <Content Include="UI\MallImages\Tangs.jpeg" />
+    <Content Include="UI\MallImages\The Adelphi.jpeg" />
+    <Content Include="UI\MallImages\The Cathay.jpeg" />
+    <Content Include="UI\MallImages\The Centrepoint.jpeg" />
+    <Content Include="UI\MallImages\The Clementi Mall.jpeg" />
+    <Content Include="UI\MallImages\The Heeren.jpeg" />
+    <Content Include="UI\MallImages\The Star Vista.jpeg" />
+    <Content Include="UI\MallImages\The Verge.jpeg" />
+    <Content Include="UI\MallImages\Thomson Plaza.jpeg" />
+    <Content Include="UI\MallImages\Tiong Bahru Plaza.jpeg" />
+    <Content Include="UI\MallImages\UE Square.jpeg" />
+    <Content Include="UI\MallImages\United Square Shopping Mall.jpeg" />
+    <Content Include="UI\MallImages\Valley Point.jpeg" />
+    <Content Include="UI\MallImages\Velocity %40 Novena Square.jpeg" />
+    <Content Include="UI\MallImages\Vivocity.jpeg" />
+    <Content Include="UI\MallImages\West Coast Plaza %28Ginza Plaza%29.jpeg" />
+    <Content Include="UI\MallImages\West Mall.jpeg" />
+    <Content Include="UI\MallImages\Westgate.jpeg" />
+    <Content Include="UI\MallImages\Wheelock Place.jpeg" />
+    <Content Include="UI\MallImages\White Sands Shopping Centre.jpeg" />
+    <Content Include="UI\MallImages\Wisma Atria.jpeg" />
+    <Content Include="UI\MallImages\Yew Tee Point.jpeg" />
+    <Content Include="UI\ResetPasswordSecurityQns.aspx" />
+    <Content Include="UI\ResetPasswordUsername.aspx" />
+    <Content Include="UI\SetTimer.aspx" />
+    <Content Include="UI\SignUp.aspx" />
+    <Content Include="UI\Timercountdown.aspx" />
+    <Content Include="UI\TimerInformation.aspx" />
+    <Content Include="UI\UpdateUserDetail.aspx" />
+    <Content Include="UI\UserHomepage.aspx" />
+    <Content Include="UI\ViewListofVehicles.aspx" />
+    <Content Include="UI\ViewParkingHistory.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Code\BLL\BLLAccInfo.cs" />
+    <Compile Include="App_Code\BLL\BLLCapRate.cs" />
+    <Compile Include="App_Code\BLL\BLLCarparkInfo.cs" />
+    <Compile Include="App_Code\BLL\BLLCarparkRates.cs" />
+    <Compile Include="App_Code\BLL\BLLEmailService.cs" />
+    <Compile Include="App_Code\BLL\BLLParkingHistory.cs" />
+    <Compile Include="App_Code\BLL\BLLSecurityQns.cs" />
+    <Compile Include="App_Code\BLL\BLLSurchargeRate.cs" />
+    <Compile Include="App_Code\BLL\BLLVehicle.cs" />
+    <Compile Include="App_Code\DAL\AccInfo.cs" />
+    <Compile Include="App_Code\DAL\CapRate.cs" />
+    <Compile Include="App_Code\DAL\CarparkInfo.cs" />
+    <Compile Include="App_Code\DAL\CarparkRates.cs" />
+    <Compile Include="App_Code\DAL\EmailService.cs" />
+    <Compile Include="App_Code\DAL\ParkingHistory.cs" />
+    <Compile Include="App_Code\DAL\SecurityQns.cs" />
+    <Compile Include="App_Code\DAL\SurchargeRate.cs" />
+    <Compile Include="App_Code\DAL\Vehicle.cs" />
+    <Compile Include="UI\313%40somerset.aspx.cs">
+      <DependentUpon>313%40somerset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\313%40somerset.aspx.designer.cs">
+      <DependentUpon>313%40somerset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ActivateAcc.aspx.cs">
+      <DependentUpon>ActivateAcc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ActivateAcc.aspx.designer.cs">
+      <DependentUpon>ActivateAcc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\bugisjunction.aspx.cs">
+      <DependentUpon>bugisjunction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\bugisjunction.aspx.designer.cs">
+      <DependentUpon>bugisjunction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CarparkSearch.aspx.cs">
+      <DependentUpon>CarparkSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CarparkSearch.aspx.designer.cs">
+      <DependentUpon>CarparkSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CarparkView.aspx.cs">
+      <DependentUpon>CarparkView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CarparkView.aspx.designer.cs">
+      <DependentUpon>CarparkView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CPMasterPage.Master.cs">
+      <DependentUpon>CPMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CPMasterPage.Master.designer.cs">
+      <DependentUpon>CPMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Homepage.aspx.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Homepage.aspx.designer.cs">
+      <DependentUpon>Homepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ResetPasswordSecurityQns.aspx.cs">
+      <DependentUpon>ResetPasswordSecurityQns.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ResetPasswordSecurityQns.aspx.designer.cs">
+      <DependentUpon>ResetPasswordSecurityQns.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ResetPasswordUsername.aspx.cs">
+      <DependentUpon>ResetPasswordUsername.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ResetPasswordUsername.aspx.designer.cs">
+      <DependentUpon>ResetPasswordUsername.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SetTimer.aspx.cs">
+      <DependentUpon>SetTimer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SetTimer.aspx.designer.cs">
+      <DependentUpon>SetTimer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SignUp.aspx.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SignUp.aspx.designer.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Timercountdown.aspx.cs">
+      <DependentUpon>Timercountdown.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Timercountdown.aspx.designer.cs">
+      <DependentUpon>Timercountdown.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TimerInformation.aspx.cs">
+      <DependentUpon>TimerInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\TimerInformation.aspx.designer.cs">
+      <DependentUpon>TimerInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UpdateUserDetail.aspx.cs">
+      <DependentUpon>UpdateUserDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\UpdateUserDetail.aspx.designer.cs">
+      <DependentUpon>UpdateUserDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UserHomepage.aspx.cs">
+      <DependentUpon>UserHomepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\UserHomepage.aspx.designer.cs">
+      <DependentUpon>UserHomepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ViewListofVehicles.aspx.cs">
+      <DependentUpon>ViewListofVehicles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ViewListofVehicles.aspx.designer.cs">
+      <DependentUpon>ViewListofVehicles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ViewParkingHistory.aspx.cs">
+      <DependentUpon>ViewParkingHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ViewParkingHistory.aspx.designer.cs">
+      <DependentUpon>ViewParkingHistory.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="UI\CPMasterPage.Master" />
+    <Content Include="UI\Layout\JSON\package-lock.json" />
+    <Content Include="UI\Layout\JSON\package.json" />
+    <Content Include="UI\Layout\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="UI\Layout\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="UI\Layout\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="UI\Layout\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="UI\Layout\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="UI\Layout\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="UI\Layout\vendor\jquery\jquery.min.map" />
+    <Content Include="UI\Layout\vendor\jquery\jquery.slim.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51298</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51298/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
