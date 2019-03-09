@@ -10,7 +10,7 @@ namespace CPManageApp.App_Code.DAL
 {
     public class CarparkInfo
     {
-        string _carparkID ="";
+        string _carparkID = "";
         string _carparkName = "";
         int _totalSlots = 0;
         string _carparkLocation = "";
@@ -91,7 +91,7 @@ namespace CPManageApp.App_Code.DAL
 
         }
 
-        public Boolean CreateNewCarpark(string carparkID, string carparkName, int totalSlots, string carparkLocation, string startHour, 
+        public Boolean CreateNewCarpark(string carparkID, string carparkName, int totalSlots, string carparkLocation, string startHour,
             string endHour, string region, string carparkStatus, string image, double latitude, double longtitude)
         {
 
@@ -178,8 +178,9 @@ namespace CPManageApp.App_Code.DAL
         public List<CarparkInfo> searchCarpark(string searchCarparkName, string searchRegion)
         {
 
-            int  totalSlots, slotTaken;
-            string carparkID,carparkName, carparkLocation, startHour, endHour, region, carparkStatus, image;
+            int totalSlots, slotTaken;
+            double latitude, longtitude;
+            string carparkID, carparkName, carparkLocation, startHour, endHour, region, carparkStatus, image;
             List<CarparkInfo> carparkList = new List<CarparkInfo>();
             string strConnectionString = ConfigurationManager.ConnectionStrings["CPMDatabase"].ConnectionString;
 
@@ -206,7 +207,11 @@ namespace CPManageApp.App_Code.DAL
                     carparkStatus = dr["carparkStatus"].ToString();
                     slotTaken = int.Parse(dr["slotTaken"].ToString());
                     image = dr["image"].ToString();
+                    latitude = double.Parse(dr["latitude"].ToString());
+                    longtitude = double.Parse(dr["longtitude"].ToString());
                     CarparkInfo a = new CarparkInfo(carparkID, carparkName, totalSlots, carparkLocation, startHour, endHour, region, carparkStatus, slotTaken, image);
+                    a.Latitude = latitude;
+                    a.Longtitude = longtitude;
                     carparkList.Add(a);
                 }
                 myConnect.Close();
@@ -236,7 +241,11 @@ namespace CPManageApp.App_Code.DAL
                     carparkStatus = dr["carparkStatus"].ToString();
                     slotTaken = int.Parse(dr["slotTaken"].ToString());
                     image = dr["image"].ToString();
+                    latitude = double.Parse(dr["latitude"].ToString());
+                    longtitude = double.Parse(dr["longtitude"].ToString());
                     CarparkInfo a = new CarparkInfo(carparkID, carparkName, totalSlots, carparkLocation, startHour, endHour, region, carparkStatus, slotTaken, image);
+                    a.Latitude = latitude;
+                    a.Longtitude = longtitude;
                     carparkList.Add(a);
                 }
                 myConnect.Close();
@@ -248,6 +257,7 @@ namespace CPManageApp.App_Code.DAL
         public CarparkInfo getCarpark(string carparkID)
         {
             int totalSlots, slotTaken;
+            double latitude, longtitude;
             string carparkName, carparkLocation, startHour, endHour, region, carparkStatus, image;
             CarparkInfo carpark = new CarparkInfo();
             string strConnectionString = ConfigurationManager.ConnectionStrings["CPMDatabase"].ConnectionString;
@@ -272,7 +282,9 @@ namespace CPManageApp.App_Code.DAL
                 carparkStatus = dr["carparkStatus"].ToString();
                 slotTaken = int.Parse(dr["slotTaken"].ToString());
                 image = dr["image"].ToString();
-                carpark = new CarparkInfo(carparkID, carparkName, totalSlots, carparkLocation, startHour, endHour, region, carparkStatus, slotTaken, image);
+                latitude = double.Parse(dr["latitude"].ToString());
+                longtitude = double.Parse(dr["longtitude"].ToString());
+                carpark = new CarparkInfo(carparkID, carparkName, totalSlots, carparkLocation, startHour, endHour, region, carparkStatus, slotTaken, image,latitude,longtitude);
             }
             myConnect.Close();
             dr.Close();
@@ -283,8 +295,9 @@ namespace CPManageApp.App_Code.DAL
         public List<CarparkInfo> getAllCarpark()
         {
 
-            int  totalSlots, slotTaken;
-            string carparkID,carparkName, carparkLocation, startHour, endHour, region, carparkStatus, image;
+            int totalSlots, slotTaken;
+            double latitude, longtitude;
+            string carparkID, carparkName, carparkLocation, startHour, endHour, region, carparkStatus, image;
             List<CarparkInfo> carparkList = new List<CarparkInfo>();
             string strConnectionString = ConfigurationManager.ConnectionStrings["CPMDatabase"].ConnectionString;
 
@@ -307,7 +320,9 @@ namespace CPManageApp.App_Code.DAL
                 carparkStatus = dr["carparkStatus"].ToString();
                 slotTaken = int.Parse(dr["slotTaken"].ToString());
                 image = dr["image"].ToString();
-                CarparkInfo a = new CarparkInfo(carparkID, carparkName, totalSlots, carparkLocation, startHour, endHour, region, carparkStatus, slotTaken, image);
+                latitude = double.Parse(dr["latitude"].ToString());
+                longtitude = double.Parse(dr["longtitude"].ToString());
+                CarparkInfo a = new CarparkInfo(carparkID, carparkName, totalSlots, carparkLocation, startHour, endHour, region, carparkStatus, slotTaken, image, latitude,longtitude);
                 carparkList.Add(a);
             }
             myConnect.Close();
@@ -415,6 +430,6 @@ namespace CPManageApp.App_Code.DAL
 
         //}
 
-        
+
     }
 }

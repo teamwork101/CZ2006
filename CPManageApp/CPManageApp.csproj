@@ -393,6 +393,7 @@
     <Compile Include="App_Code\BLL\BLLSecurityQns.cs" />
     <Compile Include="App_Code\BLL\BLLSurchargeRate.cs" />
     <Compile Include="App_Code\BLL\BLLVehicle.cs" />
+    <Content Include="App_Code\BLL\Class1.cs" />
     <Compile Include="App_Code\DAL\AccInfo.cs" />
     <Compile Include="App_Code\DAL\CapRate.cs" />
     <Compile Include="App_Code\DAL\CarparkInfo.cs" />

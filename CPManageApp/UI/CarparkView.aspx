@@ -55,6 +55,9 @@
                             <td>&nbsp&nbsp&nbsp;</td>
                         </tr>
                         <tr>
+                            <td><asp:Button ID="btnDir" runat="server" CssClass="btn btn-primary" OnClick="btnDir_Click" Text="Get Directions" />  </td>
+                        </tr>
+                        <tr>
                             <td><asp:Button ID="btnBack" runat="server" CssClass="btn btn-primary" OnClick="btnBack_Click" Text="Back" />  </td>
                         </tr>
                     </table>

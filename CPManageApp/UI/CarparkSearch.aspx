@@ -9,7 +9,8 @@
             <br />
             <h2>Carpark Search</h2>
             <br />
-
+     <asp:ScriptManager runat ="server" ></asp:ScriptManager>
+        <asp:Panel ID="searchPanel" runat="server" DefaultButton="btn_SearchMall">
             <!--Start of Top Layer -->
             <div class="form-row align-items-center">
 
@@ -39,8 +40,10 @@
                     <br />
                    <asp:Button class="btn btn-danger " runat="server" Text="Search" ID="btn_SearchMall" CausesValidation="false" OnClick="btn_SearchMall_Click"/>
                 </div>
-
             </div>
+        </asp:Panel>
+
+            
             <!--End of Top Layer -->
             <br />
 

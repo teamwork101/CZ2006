@@ -70,7 +70,12 @@ namespace CPManageApp.UI
 
         protected void btnBack_Click(object sender, EventArgs e)
         {
-            Response.Redirect("CarparkSearch.aspx");
+            Response.Redirect("Map.aspx?CarparkName="+ Request.QueryString["carparkName"].ToString()+"&dir=0");
+        }
+
+        protected void btnDir_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Map.aspx?CarparkName=" + Request.QueryString["carparkName"].ToString()+"&dir=1");
         }
     }
 }
