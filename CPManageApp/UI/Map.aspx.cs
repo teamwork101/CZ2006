@@ -278,20 +278,21 @@ document.getElementById('direction-panel').innerHTML = """ + content + @""";
 
         protected string getContent(CarparkInfo carpark)
         {
-            string content = @"<a href = 'CarparkView.aspx?carparkName=" + carpark.CarparkID + @"' style='text-decoration:none; color: inherit;'> " +
-                    carpark.CarparkID + "<br/>" +
-                    "<img src='/UI/MallImages/" + carpark.Image + @"' style='width: 300px; height: 300px;'> " +
-                    "</a><br/> " +
-                    "             <p>Carpark Availability: " + carpark.CarparkStatus + "<p/>"
-                    + "<p>Latitude: " + carpark.Latitude + "<p/>"
-                    + "<p>Longitude: " + carpark.Longtitude + "<p/>"
-                    + "<p>Starting Hour: " + carpark.StartHour + "<p/>"
-                    + "<p>Ending Hour: "+carpark.EndHour+"<p/>"
-                    + "<p>Address: "+carpark.CarparkLocation+"<p/>"
-                    + "<p>Slots Taken: "+carpark.SlotTaken+"<p/>"
-                    + "<p>Total Slots: "+carpark.TotalSlots+"<p/>"
-                    + "<p> Carpark Image URL: "+carpark.Image+"<p/>"
-                    ;
+            string content = @"<a href = 'CarparkView.aspx?carparkName=" + carpark.CarparkID +
+                             @"' style='text-decoration:none; color: inherit;'> " +
+                             carpark.CarparkID + "<br/>" +
+                             "<img src='/UI/MallImages/" + carpark.Image + @"' style='width: 300px; height: 300px;'> " +
+                             "</a><br/> " +
+                             "             <p>Carpark Availability: " + carpark.CarparkStatus + "<p/>"
+//                             + "<p>Latitude: " + carpark.Latitude + "<p/>"
+//                             + "<p>Longitude: " + carpark.Longtitude + "<p/>"
+                             + "<p>Starting Hour: " + carpark.StartHour + "<p/>"
+                             + "<p>Ending Hour: " + carpark.EndHour + "<p/>"
+                             + "<p>Address: " + carpark.CarparkLocation + "<p/>"
+                             + "<p>Slots Taken: " + carpark.SlotTaken + "<p/>"
+                             + "<p>Total Slots: " + carpark.TotalSlots + "<p/>"
+//                    + "<p> Carpark Image URL: "+carpark.Image+"<p/>"
+                             + "<a class='button' href = 'Map.aspx?CarparkName=" + carpark.CarparkID + @"&dir=1'>Get directions</a>";
             return content;
         }
 

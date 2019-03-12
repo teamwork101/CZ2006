@@ -49,6 +49,9 @@
                          <li class="nav-item">
                             <a class="nav-link" href="CarparkSearch.aspx">Search Carpark</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Map.aspx">Get Directions</a>
+                        </li>
                     </ul>
                     <%--  Add Sign up Button Method 1--%>
                     <ul class="nav navbar-nav navbar-right">
