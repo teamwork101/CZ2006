@@ -55,9 +55,6 @@
                             <td>&nbsp&nbsp&nbsp;</td>
                         </tr>
                         <tr>
-                            <td><asp:Button ID="btnDir" runat="server" CssClass="btn btn-primary" OnClick="btnDir_Click" Text="Get Directions" />  </td>
-                        </tr>
-                        <tr>
                             <td><asp:Button ID="btnBack" runat="server" CssClass="btn btn-primary" OnClick="btnBack_Click" Text="Back" />  </td>
                         </tr>
                     </table>
@@ -71,15 +68,16 @@
             <asp:Label ID="lblOccupiedLots" runat="server" Text="Occupied Parking Lots" BackColor="Red" ForeColor="Wheat" Font-Size="Large"></asp:Label>
 
                 </div>
-<iframe id="myIframe" height="800" width="1551" runat="server" />
-                    <br />
-                    <br />
-                                                      
-
+                                                     
+                <iframe id="myIframe" height="800" width="1551" runat="server" align="middle"/>
+                <br />
+                <br />
             </div>
 
             <!-- End List of Button Forms -->
             <%--</div>--%>
         </div>
+        
+
     </section>
 </asp:Content>

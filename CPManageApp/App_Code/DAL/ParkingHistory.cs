@@ -269,7 +269,7 @@ namespace CPManageApp.App_Code.DAL
             //var twilio = new TwilioRestClient(accountSid, authToken);
             var twilio = new TwilioRestClient(Environment.GetEnvironmentVariable(accountSid), Environment.GetEnvironmentVariable(authToken));
             string from = "+15164943041";
-            string to = "+6591723761";
+             string to = "+6591598596";
             string msg = "Parking session time up!";
             msg += " This is auto generated. Please do not reply.";
 

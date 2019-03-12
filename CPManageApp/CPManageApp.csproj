@@ -231,6 +231,8 @@
     <Content Include="UI\CarparkSearch.aspx" />
     <Content Include="UI\CarparkView.aspx" />
     <Content Include="UI\ChangePassword.aspx" />
+    <Content Include="UI\Directions.aspx" />
+    <Content Include="UI\directions.js" />
     <Content Include="UI\Layout\css\half-slider.css" />
     <Content Include="UI\Homepage.aspx" />
     <Content Include="UI\Layout\img\Clogo.png" />
@@ -368,6 +370,8 @@
     <Content Include="UI\MallImages\Wisma Atria.jpeg" />
     <Content Include="UI\MallImages\Yew Tee Point.jpeg" />
     <Content Include="UI\map.js" />
+    <Content Include="UI\Map2.aspx" />
+    <Content Include="UI\map2.js" />
     <Content Include="UI\ResetPasswordSecurityQns.aspx" />
     <Content Include="UI\ResetPasswordUsername.aspx" />
     <Content Include="UI\SetTimer.aspx" />
@@ -452,6 +456,13 @@
     <Compile Include="UI\CPMasterPage.Master.designer.cs">
       <DependentUpon>CPMasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="UI\Directions.aspx.cs">
+      <DependentUpon>Directions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Directions.aspx.designer.cs">
+      <DependentUpon>Directions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Homepage.aspx.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -466,6 +477,13 @@
     </Compile>
     <Compile Include="UI\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Map2.aspx.cs">
+      <DependentUpon>Map2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Map2.aspx.designer.cs">
+      <DependentUpon>Map2.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\ResetPasswordSecurityQns.aspx.cs">
       <DependentUpon>ResetPasswordSecurityQns.aspx</DependentUpon>

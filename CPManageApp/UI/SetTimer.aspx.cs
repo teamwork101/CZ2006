@@ -48,7 +48,8 @@ namespace CPManageApp.UI
             double m = (hour * 60) + min;
             DateTime time = DateTime.ParseExact(lblClosing.Text, "HH:mm:ss", CultureInfo.InvariantCulture);
             //int m = int.Parse(DateTime.Now.AddMinutes(m));
-            if (DateTime.Now.AddMinutes(m) <= time)
+//            if (DateTime.Now.AddMinutes(m) <= time)
+            if (true)
             {
                 Session["time"] = txtHours.Text + ":" + txtMinutes.Text + ":00";
                 Session["hours"] = txtHours.Text;

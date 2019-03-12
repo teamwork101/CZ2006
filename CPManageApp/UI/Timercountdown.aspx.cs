@@ -10,16 +10,30 @@ namespace CPManageApp.UI
 {
     public partial class Timercountdown : System.Web.UI.Page
     {
+
+        static int h = 0;
+        static int m = 1;
+        static int s = 0;
+
         ParkingHistory ph = new ParkingHistory();
         protected void Page_Load(object sender, EventArgs e)
         {
-            //h = Convert.ToInt32(Session["hours"].ToString());
-            //m = Convert.ToInt32(Session["minutes"].ToString());
+            h = Convert.ToInt32(Session["hours"].ToString());
+            m = Convert.ToInt32(Session["minutes"].ToString());
+            //            System.Diagnostics.Debug.WriteLine(Session["hours"].ToString());
+            //            System.Diagnostics.Debug.WriteLine(Session["minutes"].ToString());
+            if (h == -1)
+            {
+                lblTimer.Text = " ";
+            }
+            else
+            {
+                lblTimer.Text = h.ToString() + ":" +  m.ToString() + ":" + s.ToString();
+            }
+//            System.Diagnostics.Debug.WriteLine(h);
+//            System.Diagnostics.Debug.WriteLine(m);
         }
 
-        static int h;
-        static int m=1;
-        static int s =0;
         int i;
         protected void btnReset_Click(object sender, EventArgs e)
         {
@@ -40,7 +54,7 @@ namespace CPManageApp.UI
             }
             if (m == 0 && s == 0)
             {
-                Timer1.Enabled = false; //if both 0 then will be false
+                // Timer1.Enabled = false; //if both 0 then will be false
                 Label1.Visible = true;
                 ph.sendNotification1();
                 //lblTimer.Text = "0 : 0 : 0";
@@ -93,6 +107,15 @@ namespace CPManageApp.UI
             //lblTimer.Text = DateTime.Now.ToString("HH: MM : ss ");
 
 
+        }
+
+        protected void Timer_Ends(object sender, EventArgs e)
+        {
+//            Session["hours"] = "-1";
+//            h = -1;
+            Label1.Visible = true;
+            ph.sendNotification1();
+            Response.Redirect("SetTimer.aspx");
         }
 
     }
