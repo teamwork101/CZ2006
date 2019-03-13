@@ -189,7 +189,7 @@ namespace CPManageApp.App_Code.DAL
             if (searchRegion == "All")
             {
                 //create command
-                string strCommandText = "SELECT * FROM CarparkInfo WHERE carparkName Like @searchCarparkName";
+                string strCommandText = "SELECT * FROM CarparkInfo WHERE carparkName LIKE @searchCarparkName OR carparkLocation LIKE @searchCarparkName ";
                 SqlCommand cmd = new SqlCommand(strCommandText, myConnect);
                 cmd.Parameters.Add("@searchCarparkName", SqlDbType.VarChar, 50);
                 cmd.Parameters["@searchCarparkName"].Value = "%" + searchCarparkName + "%";

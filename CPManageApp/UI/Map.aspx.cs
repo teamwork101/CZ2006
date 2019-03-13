@@ -145,27 +145,16 @@ function initMap() {
             {
                 List<CarparkInfo> carparks = carparkInfo.getAllCarpark();
                 initializeMap(getMapInfo(carparks));
+                carparkjs.Text = @"
+                    document.getElementById('direction-panel').innerHTML = 
+                ";
                 return;
             }
-            int i = 0;
-            Boolean hasCoords = false;
-            for (i = 0; i < carparkSearch.Count; i++)
-            {
-                if (carparkSearch[i].Latitude != 0)
-                {
-                    hasCoords = true;
-                    break;
-                }
-            }
-            if (i > 0 || carparkSearch.Count == 1)
+            if (carparkSearch.Count>0)
             {
                 string content = "";
-                if (carparkSearch.Count==1)
-                {
                     content = getContent(carparkSearch[0]);
-                    if (hasCoords)
-                    {
-                        mapjs.Text = @"
+                    mapjs.Text = @"
 var map;
 // Initialize and add the map
 var geocoder;
@@ -183,44 +172,6 @@ function initMap() {
             map = new google.maps.Map(document.getElementById('map'), mapOptions);
             " + getMapInfo(carparkSearch) + @"
 }";
-                    }
-                    else
-                    {
-                        initializeMap("");
-                    }
-                    carparkjs.Text = @"
-                    document.getElementById('direction-panel').innerHTML = """ + content + @""";
-                ";
-                }
-                else
-                {
-                    content = getContent(carparkSearch[i]);
-                    if (hasCoords)
-                    {
-                        mapjs.Text = @"
-var map;
-// Initialize and add the map
-var geocoder;
-function initMap() {
-            var pos={
-                lat: " + carparkSearch[i].Latitude + @",
-                lng: " + carparkSearch[i].Longtitude + @"
-            };
-
-            var mapOptions = {
-            zoom:15,
-            center:pos,
-            disableDefaultUI:true
-            }
-            map = new google.maps.Map(document.getElementById('map'), mapOptions);
-            " + getMapInfo(carparkSearch) + @"
-}";
-                    }
-                    else
-                    {
-                        initializeMap("");
-                    }
-                }
                 carparkjs.Text = @"
                     document.getElementById('direction-panel').innerHTML = """ + content + @""";
                 ";
